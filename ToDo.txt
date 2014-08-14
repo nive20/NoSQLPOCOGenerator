@@ -2,5 +2,5 @@
 -Update Cassandra sharp driver
 -support for complex datatypes cassandra
 -support for Mongo Db
--web application support
+-web application support  
 
