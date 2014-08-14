@@ -25,7 +25,7 @@ For the current release it uses Cassandra as the NoSQL database and C# and VB as
  5.	Support for Clip board based minimal syntax checking for Cassandra
  
 ## Build Steps
-  Refer to the documentation at [Build Step]
+  Refer to the documentation at [Build Steps](https://github.com/HappiestMinds/NoSQLPOCOGenerator/wiki/Build-Steps)
 
 ## Known Limitation
  The application has not been tested end-to-end on Windows 8 Desktop
