@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="POCOGenerator.UI.ScriptsPoco"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="425" d:DesignWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="53"/>
+        </Grid.RowDefinitions>
+        
+        <WrapPanel Background="#FFABCEEE" Grid.Row="0">
+          <Canvas x:Name="HeirarchyId" Height="330" Background="White" Width="510" 
+                  Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <Label x:Name="Namespacelbl" Content="" />
+                <ListBox x:Name="Pocolistclass" Background="Transparent" BorderBrush="Transparent" 
+                     ItemsSource="{Binding POCOObjectListForExport}">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:Name="listClasstemplate">
+                            <Grid Margin="0,2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3">
+                                    <TextBlock Text="ClassName :" MinWidth="80" FontWeight="Bold"/>
+                                    <TextBlock x:Name="clsNme" Text="{Binding className}" MinWidth="80"/>
+                                </StackPanel>
+                                <ListBox x:Name="listobjects" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding PocoListObjects}"
+                                     Background="Transparent" BorderBrush="Transparent">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0,2" Background="AliceBlue" >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="30" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" Text="{Binding Type}" MinWidth="60"/>
+                                                <TextBlock x:Name="columnname" Grid.Column="2" Text="{Binding ColumnFamilyName}" Width="100" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </Canvas>
+        </WrapPanel>
+        <StackPanel Orientation="Horizontal" 
+                   Grid.Row="1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="500" Background="White">
+            <Button x:Name="Prevbtn" Content="Previous" Width="60" Height="25" Margin="350,0,0,0" Click="prevbtn_Click" />
+            <Button x:Name="Reviewbtn" Content="Review" Height="25" Margin="10" Width="60" Click="reviewbtn_Click"/>
+
+        </StackPanel>
+    </Grid>
+    
+</UserControl>

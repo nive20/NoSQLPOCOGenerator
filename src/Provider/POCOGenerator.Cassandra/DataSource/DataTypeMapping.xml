@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<CDataTypes>
+
+  <CDataType key="varchartype"  value="string" IsDefault="true"></CDataType>
+  <CDataType key="doubletype"  value="double" IsDefault="true"></CDataType>
+  <CDataType key="floattype"  value="float" IsDefault="true"></CDataType>
+  <CDataType key="booleantype"  value="bool" IsDefault="true"></CDataType>
+  <CDataType key="uuidtype"  value="Guid" IsDefault="true"></CDataType>
+  <CDataType key="longtype"  value="long" IsDefault="true"></CDataType>
+  <CDataType key="timestamptype"  value="DateTime" IsDefault="true"></CDataType>
+  <CDataType key="blobtype"  value="Blob" IsDefault="true"></CDataType>
+  <CDataType key="inttype"  value="int" IsDefault="true"></CDataType>
+  <CDataType key="datetimetype"  value="DateTime"></CDataType>
+  <CDataType key="datetype"  value="DateTime"></CDataType>
+  <CDataType key="int32type"  value="int" ></CDataType>
+  <CDataType key="integertype"  value="int" ></CDataType>
+  <CDataType key="asciitype"  value="string"></CDataType>
+  <CDataType key="biginttype"  value="int"></CDataType>
+  <CDataType key="countertype"  value="int"></CDataType>
+  <CDataType key="decimaltype"  value="float"></CDataType>
+  <CDataType key="inettype"  value="string"></CDataType>
+  <CDataType key="utf8type"  value="string"></CDataType>
+  <CDataType key="texttype"  value="string"></CDataType>
+  <CDataType key="timeuuidtype"  value="Guid"></CDataType>
+  <CDataType key="varinttype"  value="int"></CDataType>
+</CDataTypes>

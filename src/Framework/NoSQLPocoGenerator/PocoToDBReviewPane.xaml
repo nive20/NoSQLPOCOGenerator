@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="POCOGenerator.UI.PocoToDbReviewPane"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+              d:DesignHeight="425" d:DesignWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="53"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Background="#FFABCEEE" Orientation="Vertical">
+                <ListBox x:Name="Pocolistclass" Background="Transparent" BorderBrush="Transparent" Margin="15"
+                     ItemsSource="{Binding POCOObjectListForExport}" Width="400">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>       
+                                
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3">
+                                    <Label  Content="Create Table If Not Exists" />
+                                    <TextBox x:Name="NmsNme" Text="{Binding namespaceName}" MinWidth="80"/>
+                                    <Label  Content="." />
+                                    <TextBox x:Name="clsNme" Text="{Binding className}" MinWidth="80"/>
+                                </StackPanel>
+                                <Label Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0" Content=" (" />
+                                <ListBox x:Name="listobjects" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding PocoListObjects}"
+                                     Background="Transparent" BorderBrush="Transparent">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0,2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="50" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <TextBox Grid.Column="0" Text="{Binding Type}" MinWidth="100" />
+                                                <Label Grid.Column="1" Content=" "/>
+                                                <TextBox Grid.Column="2" Text="{Binding ColumnFamilyName}" MinWidth="100" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <Label Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="0" Content=" )" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="500" Background="White" Height="53">
+            <Button x:Name="Prevbtn" Content="Previous" Width="60" Height="25" Margin="350,0,0,0" Click="prevbtn_Click" />
+            <Button x:Name="Savebtn" Content="Save" Height="25" Margin="10" Width="60" Click="savebtn_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>

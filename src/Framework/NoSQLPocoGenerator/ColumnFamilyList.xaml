@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="POCOGenerator.UI.ColumnFamilyList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="425" d:DesignWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="53"/>
+        </Grid.RowDefinitions>
+        <Canvas Background="#FFABCEEE" Grid.Row="0" >
+            <TreeView x:Name="Columnfamilytree" CheckBox.Checked="ColumnFamilyList_Checked"
+                      HorizontalAlignment="Left" Height="286" Margin="67,23,0,0" VerticalAlignment="Top"  Width="345"  >
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal">
+                        <CheckBox Content="{Binding columnfamilyname}" 
+                          IsChecked="{Binding Ischecked}" IsThreeState="True"/>
+                        <ContentPresenter 
+                          Content="{Binding Parent, Mode=TwoWay}" 
+                          Margin="2,0"
+                          />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </Canvas>
+        <StackPanel Orientation="Horizontal"  VerticalAlignment="Bottom" Height="53"  Width="500" Background="White" Grid.Row="1">
+            <Button x:Name="Generatebtn" Content="Generate" Width="65" Height="25" Margin="420,0,0,0" Click="generatebtn_Click"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

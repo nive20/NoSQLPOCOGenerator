@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="POCOGenerator.UI.ReviewPaneVb"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="425" d:DesignWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="53"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Background="#FFABCEEE" Orientation="Vertical">
+                <Label x:Name="Usingline" Content="Imports System"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Namespace "/>
+                    <TextBox x:Name="NamespaceName" MinWidth="100" />
+                </StackPanel>
+                <ListBox x:Name="Pocolistclass" Background="Transparent" BorderBrush="Transparent" 
+                     ItemsSource="{Binding POCOObjectListForExport}" Width="400">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:Name="listClasstemplate">
+                            <Grid Margin="0,2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3">
+                                    <Label  Content="Public" />
+                                    <Label  Content="Class"/>
+                                    <TextBox x:Name="clsNme" Text="{Binding className}" MinWidth="80"/>
+                                </StackPanel>
+                                <ListBox x:Name="listobjects" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding PocoListObjects}"
+                                     Background="Transparent" BorderBrush="Transparent">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0,2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="100" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="100" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label  Grid.Column="0" Content="Public Property " />
+                                                <TextBox  Grid.Column="1" Text="{Binding ColumnFamilyName}"/>
+                                                <Label  Grid.Column="2" Content="As " />
+                                                <TextBox Grid.Column="3" Text="{Binding Type}" MinWidth="60" Width="100"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <Label x:Name="classEndlbl" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0"
+                                       Content=" End Class" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Label  Content="End Namespace"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="500" Background="White" Height="53">
+            <Button x:Name="Prevbtn" Content="Previous" Width="60" Height="25" Margin="350,0,0,0" Click="prevbtn_Click" />
+            <Button x:Name="Savebtn" Content="Save" Height="25" Margin="10" Width="60" Click="savebtn_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>

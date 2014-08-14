@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="POCOGenerator.UI.DataBaseSelection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="430" d:DesignWidth="500">
+    <Grid Background="#FFABCEEE" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="#FFABCEEE"  Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Choose the NOSQL Database" Margin="80,50,0,0"/>
+                <ComboBox x:Name="DbTypesCombo" VerticalAlignment="Top" MinWidth="100" Margin="0,50,0,0" SelectionChanged="DBTypesCombo_SelectionChanged"  >
+                    <ComboBoxItem Content="CassandraDB" HorizontalAlignment="Left" Width="98"/>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        <ContentControl x:Name="AuthenticatiContentArea" Grid.Row="1" Height="297"/>
+    </Grid>
+</UserControl>

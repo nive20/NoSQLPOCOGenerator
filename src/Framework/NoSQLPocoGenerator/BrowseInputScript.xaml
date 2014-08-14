@@ -1,0 +1,188 @@
+﻿<UserControl x:Class="POCOGenerator.UI.BrowseInputScript"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="425" d:DesignWidth="500">
+
+
+    <UserControl.Resources>
+        <ControlTemplate x:Key="HorizontalScrollBarTemplate" TargetType="{x:Type ScrollBar}">
+            <Grid x:Name="Bg" SnapsToDevicePixels="True" Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+                    <ColumnDefinition Width="1E-05*"/>
+                    <ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+                </Grid.ColumnDefinitions>
+                <RepeatButton IsEnabled="{TemplateBinding IsMouseOver}" Command="ScrollBar.PageLeftCommand">
+                    <RepeatButton.Style>
+                        <Style TargetType="{x:Type RepeatButton}">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Focusable" Value="False"/>
+                            <Setter Property="IsTabStop" Value="False"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                                        <Border Background="{x:Null}" Height="18" Width="18" >
+                                            <Path Data=" M 8 15 L 8 3 L 2 9 Z" Fill="Black" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </RepeatButton.Style>
+                </RepeatButton>
+                <RepeatButton IsEnabled="{TemplateBinding IsMouseOver}" Command="ScrollBar.PageRightCommand" Grid.Column="2">
+                    <RepeatButton.Style>
+                        <Style TargetType="{x:Type RepeatButton}">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Focusable" Value="False"/>
+                            <Setter Property="IsTabStop" Value="False"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                                        <Border Background="{x:Null}" Height="18" Width="18" >
+                                            <Path Data=" M 9 15 L 9 3 L 15 9 Z" Fill="Black" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </RepeatButton.Style>
+                </RepeatButton>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" TargetName="Bg" Value="#FFF4F4F4"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ScrollViewerTemplate" TargetType="{x:Type ScrollViewer}">
+            <Grid x:Name="Grid" Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Rectangle x:Name="Corner" Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Grid.Column="1" Grid.Row="1"/>
+                <ScrollBar x:Name="PART_HorizontalScrollBar" Cursor="Arrow" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Grid.Column="0" Grid.Row="0" Orientation="Horizontal" ViewportSize="{TemplateBinding ViewportWidth}" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" AutomationProperties.AutomationId="HorizontalScrollBar" Template="{DynamicResource HorizontalScrollBarTemplate}"/>
+                <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Margin="15,2,15,0" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Grid.Column="0" Grid.Row="0" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False"/>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ScrollableTabControlTemplate" TargetType="{x:Type TabControl}">
+            <Grid ClipToBounds="True" SnapsToDevicePixels="True" KeyboardNavigation.TabNavigation="Local">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="ColumnDefinition0"/>
+                    <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
+                    <RowDefinition x:Name="RowDefinition1" Height="*"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerTemplate}" SnapsToDevicePixels="True">
+                    <TabPanel x:Name="HeaderPanel" Margin="2,2,2,0" IsItemsHost="True" Panel.ZIndex="1" Grid.Column="0" Grid.Row="0" KeyboardNavigation.ControlTabNavigation="Local"/>
+                </ScrollViewer>
+                <Border x:Name="ContentPanel" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Grid.Column="0" Grid.Row="1" KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
+                    <ContentPresenter x:Name="PART_SelectedContentHost" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Content="{TemplateBinding SelectedContent}" ContentSource="SelectedContent" ContentStringFormat="{TemplateBinding SelectedContentStringFormat}" ContentTemplate="{TemplateBinding SelectedContentTemplate}"/>
+                </Border>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="TabStripPlacement" Value="Bottom">
+                    <Setter Property="Grid.Row" TargetName="HeaderPanel" Value="1"/>
+                    <Setter Property="Grid.Row" TargetName="ContentPanel" Value="0"/>
+                    <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                    <Setter Property="Height" TargetName="RowDefinition1" Value="Auto"/>
+                    <Setter Property="Margin" TargetName="HeaderPanel" Value="2,0,2,2"/>
+                </Trigger>
+                <Trigger Property="TabStripPlacement" Value="Left">
+                    <Setter Property="Grid.Row" TargetName="HeaderPanel" Value="0"/>
+                    <Setter Property="Grid.Row" TargetName="ContentPanel" Value="0"/>
+                    <Setter Property="Grid.Column" TargetName="HeaderPanel" Value="0"/>
+                    <Setter Property="Grid.Column" TargetName="ContentPanel" Value="1"/>
+                    <Setter Property="Width" TargetName="ColumnDefinition0" Value="Auto"/>
+                    <Setter Property="Width" TargetName="ColumnDefinition1" Value="*"/>
+                    <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                    <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                    <Setter Property="Margin" TargetName="HeaderPanel" Value="2,2,0,2"/>
+                </Trigger>
+                <Trigger Property="TabStripPlacement" Value="Right">
+                    <Setter Property="Grid.Row" TargetName="HeaderPanel" Value="0"/>
+                    <Setter Property="Grid.Row" TargetName="ContentPanel" Value="0"/>
+                    <Setter Property="Grid.Column" TargetName="HeaderPanel" Value="1"/>
+                    <Setter Property="Grid.Column" TargetName="ContentPanel" Value="0"/>
+                    <Setter Property="Width" TargetName="ColumnDefinition0" Value="*"/>
+                    <Setter Property="Width" TargetName="ColumnDefinition1" Value="Auto"/>
+                    <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                    <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                    <Setter Property="Margin" TargetName="HeaderPanel" Value="0,2,2,2"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </UserControl.Resources>
+
+
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="53"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="LayoutRoot" Background="#FFABCEEE" Grid.Row="0" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Input Scripts" FontWeight="Bold" FontSize="18" Margin="10,0,0,0"/>
+                <StackPanel  Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                    <Label x:Name="NmsLbl" Content="Namespace Name "/>
+                    <TextBox x:Name="NameSpaceNm" Width="100" Margin="0,5,0,5"></TextBox>
+                </StackPanel>
+                <TabControl  x:Name="InputFilestab" Height="300" Width="498" Margin="2" AllowDrop="True" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"
+                Template="{DynamicResource ScrollableTabControlTemplate}"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" 
+                   Grid.Row="1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="500" Background="White">
+            <Button x:Name="SelFilesbtn" Content="Previous" Width="60" Height="25" Margin="350,0,0,0" Visibility="Hidden" />
+            <Button x:Name="Generatebtn" Content="Generate" Height="25" Margin="10" Width="60" Click="generatebtn_Click" />
+
+            <Popup x:Name="Popup" IsOpen="False" PlacementTarget="{Binding ElementName=SelFilesbtn}" Placement="Top" Width="146">
+                <Border BorderBrush="Black" BorderThickness="1" Background="AliceBlue">
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Width="142">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto" />
+
+                            </Grid.RowDefinitions>
+                            <GroupBox Header="Review As" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">
+                                <StackPanel>
+                                    <RadioButton x:Name="CurrentSelectionBtn" Content="CurrentSelection"/>
+                                    <RadioButton x:Name="SingleFileBtn" Content="As Single File"/>
+                                </StackPanel>
+                            </GroupBox>
+                            <Button x:Name="GenerateAsBtn" Content="Generate" Grid.Row="1" Click="generateAsBtn_Click" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Popup>
+        </StackPanel>
+    </Grid>
+
+</UserControl>

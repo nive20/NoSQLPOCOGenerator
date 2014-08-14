@@ -1,0 +1,8 @@
+CREATE COLUMN FAMILY account
+WITH comparator = UTF8Type
+AND key_validation_class=UTF8Type
+AND column_metadata = [
+{column_name: title, validation_class: UTF8Type}
+{column_name: created, validation_class: DateType}
+{column_name: use_namespace, validation_class: BooleanType}
+];
