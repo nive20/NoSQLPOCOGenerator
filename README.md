@@ -1,4 +1,4 @@
-## NOSQLPOCO Generator - Simple and Effective tool for Developers
+## NOSQLPOCO Generator - A database to object mapper for NOSQL databases
 NoSQL Poco Generator is a simple yet productive tool that can help a developer to quickly and seamlessly use various NoSQL databases. The architecture of this application is such that based on the requirement it can integrate with Code-First as well as Model-First type of development for any NoSQL database and using any developer preferred language.
 The Goal of NoSQL PO(C) JO Generator is to give a simple and powerful tool to developers using which developers can quickly integrate their application with any NoSQL database provider.The tool is built to give high flexibility for the developer. 
 
