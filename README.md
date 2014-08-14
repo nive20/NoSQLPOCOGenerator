@@ -23,6 +23,9 @@ For the current release it uses Cassandra as the NoSQL database and C# and VB as
  3.	Support for Code First 
  4.	Support for Model First
  5.	Support for Clip board based minimal syntax checking for Cassandra
+ 
+## Build Steps
+  Refer to the documentation at [Build Step]
 
 ## Known Limitation
  The application has not been tested end-to-end on Windows 8 Desktop
