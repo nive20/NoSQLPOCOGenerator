@@ -16,7 +16,7 @@ namespace POCOGenerator.LanguageProvider.UnitTest
 {
     [TestClass]
     public class LangParserUnitTest
-    {
+    {  
         [TestMethod]
         public void Convert_Fetched_Data_To_Export_Format_In_PocoToDB()
         {

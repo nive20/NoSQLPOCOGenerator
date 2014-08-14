@@ -18,7 +18,7 @@ namespace POCOGenerator.LanguageProvider.UnitTest
     {
         readonly VbLangWriter _vbWriter = new VbLangWriter();
 
-        [TestMethod]
+        [TestMethod]  
         public void ConvertListToVbScriptUnitTestForSingleFile()
         {
             var exportPocoList = new List<PocoObjectListForExport>();

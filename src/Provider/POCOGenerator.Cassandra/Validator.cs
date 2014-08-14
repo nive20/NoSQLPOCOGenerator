@@ -17,7 +17,7 @@ namespace POCOGenerator.Cassandra
 {
     public static  class Validator
     {
-        static  bool _isValidColumnFamily = true;
+        static  bool _isValidColumnFamily = true;  
 
         #region DB To Poco Script Validation
 

@@ -10,7 +10,7 @@
 using System.Windows;
 
 namespace POCOGenerator.UI
-{
+{  
     /// <summary>
     /// Interaction logic for HomePage.xaml
     /// </summary>

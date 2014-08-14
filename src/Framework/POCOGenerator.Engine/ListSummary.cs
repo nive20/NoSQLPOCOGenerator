@@ -15,7 +15,7 @@ using POCOGenerator.DatabaseObjects;
 
 namespace POCOGenerator.Engine
 {
-    public static class ListSummary
+    public static class ListSummary  
     {
         #region Generate Summary Script
 

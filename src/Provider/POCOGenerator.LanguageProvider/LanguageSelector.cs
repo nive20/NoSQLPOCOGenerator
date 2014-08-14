@@ -11,7 +11,7 @@ namespace POCOGenerator.LanguageProvider
 {
     public static class LanguageSelector
     {
-
+          
         #region Global Declarations
 
         private static bool _isJava;

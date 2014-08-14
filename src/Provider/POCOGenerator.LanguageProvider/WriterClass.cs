@@ -66,6 +66,6 @@ namespace POCOGenerator.LanguageProvider
         }
 
         #endregion
-
+          
     }
 }

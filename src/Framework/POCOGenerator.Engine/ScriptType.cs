@@ -18,6 +18,6 @@ namespace POCOGenerator.Engine
         CSharp,
         Vb,
         Ruby,
-        Java
+        Java  
     }
 }

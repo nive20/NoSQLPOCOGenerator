@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using POCOGenerator.DatabaseObjects;
 
 namespace POCOGenerator.Engine
-{
+{  
     interface IDatabaseProvider
     {
 

@@ -15,7 +15,7 @@
 
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using POCOGenerator.DatabaseObjects;
+using POCOGenerator.DatabaseObjects;  
 using POCOGenerator.Engine;
 
 namespace POCOGenerator.Cassandra.UnitTest

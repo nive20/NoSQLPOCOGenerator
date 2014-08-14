@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 
 [assembly:CLSCompliant(true)]
-namespace POCOGenerator.DatabaseObjects
+namespace POCOGenerator.DatabaseObjects  
 {
 
     #region ExportAndMappingType

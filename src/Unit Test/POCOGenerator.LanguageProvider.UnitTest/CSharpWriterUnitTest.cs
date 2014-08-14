@@ -18,7 +18,7 @@ namespace POCOGenerator.LanguageProvider.UnitTest
     {
         readonly CSharpLangWriter _csharpLang = new CSharpLangWriter();
 
-        [TestMethod]
+        [TestMethod]  
         public void ConvertListToCSharpScriptUnitTestForSingleFileOption()
         {
             var exportPocoList = new List<PocoObjectListForExport>() ;

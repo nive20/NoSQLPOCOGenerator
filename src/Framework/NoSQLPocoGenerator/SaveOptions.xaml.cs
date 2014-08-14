@@ -12,7 +12,7 @@ using System.Windows;
 using Microsoft.Win32;
 using POCOGenerator.DatabaseObjects;
 using POCOGenerator.Engine;
-
+  
 namespace POCOGenerator.UI
 {
     /// <summary>

@@ -48,7 +48,7 @@ namespace POCOGenerator.LanguageProvider
         }
 
         #endregion
-
+          
         #region Script Generation Per Object
 
         /// <summary>

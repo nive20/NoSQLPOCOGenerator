@@ -13,7 +13,7 @@ using POCOGenerator.LanguageProvider;
 
 namespace POCOGenerator.Engine
 {
-    public class ScriptWriter:ILanguageProvider
+    public class ScriptWriter:ILanguageProvider  
     {
         readonly WriterClass _writer = new WriterClass();
 

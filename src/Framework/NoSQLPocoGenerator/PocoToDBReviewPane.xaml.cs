@@ -8,7 +8,7 @@
  * limitations under the License.*/
 
 using System.Collections.Generic;
-using System.Windows;
+using System.Windows;  
 using POCOGenerator.DatabaseObjects;
 using POCOGenerator.Engine;
 

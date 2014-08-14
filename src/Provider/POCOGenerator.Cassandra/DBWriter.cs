@@ -17,7 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using POCOGenerator.DatabaseObjects;
-
+  
 namespace POCOGenerator.Cassandra
 {
     public class DbWriter

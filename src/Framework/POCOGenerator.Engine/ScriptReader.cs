@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using POCOGenerator.Cassandra;
-using POCOGenerator.DatabaseObjects;
+using POCOGenerator.DatabaseObjects;  
 using POCOGenerator.LanguageProvider;
 
 [assembly: CLSCompliant(true)]

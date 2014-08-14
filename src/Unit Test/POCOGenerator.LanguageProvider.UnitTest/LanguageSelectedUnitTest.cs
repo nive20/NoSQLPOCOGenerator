@@ -17,7 +17,7 @@ namespace POCOGenerator.LanguageProvider.UnitTest
 
         [TestMethod]
         public void AssignSelectedLanguageTypeUnitTestIfPresentDB_TO_POCO()
-        {
+        {  
             const bool expected = true;
             var actual= LanguageSelector.AssignSelectedLanguageTypeDbToPoco("VB");
             Assert.AreEqual(expected, actual);

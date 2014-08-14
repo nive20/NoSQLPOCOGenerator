@@ -10,7 +10,7 @@
 using System.Text.RegularExpressions;
 
 namespace POCOGenerator.LanguageProvider
-{
+{  
     public static class LangValidator
     {
         static bool _isValidScript = true;

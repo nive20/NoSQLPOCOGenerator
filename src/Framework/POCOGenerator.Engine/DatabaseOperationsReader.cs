@@ -8,7 +8,7 @@
  * limitations under the License.*/
 
 using System.Collections.Generic;
-using POCOGenerator.Cassandra;
+using POCOGenerator.Cassandra;  
 using POCOGenerator.DatabaseObjects;
 
 namespace POCOGenerator.Engine

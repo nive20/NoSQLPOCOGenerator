@@ -13,7 +13,7 @@ using POCOGenerator.LanguageProvider;
 namespace POCOGenerator.Engine
 {
     public static class LanguageFactory
-    {
+    {  
 
         #region Load Language Writer As per Script Type Selected
 

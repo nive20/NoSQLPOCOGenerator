@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Windows;
 using POCOGenerator.DatabaseObjects;
 using POCOGenerator.Engine;
-
+  
 namespace POCOGenerator.UI
 {
     /// <summary>

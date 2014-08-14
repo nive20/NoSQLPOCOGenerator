@@ -12,7 +12,7 @@ using System.Windows;
 using POCOGenerator.DatabaseObjects;
 using POCOGenerator.Engine;
 
-namespace POCOGenerator.UI
+namespace POCOGenerator.UI  
 {
     /// <summary>
     /// Interaction logic for ReviewPaneVB.xaml

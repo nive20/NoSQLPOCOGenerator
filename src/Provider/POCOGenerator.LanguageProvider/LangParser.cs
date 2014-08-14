@@ -14,7 +14,7 @@ using System.Text;
 using POCOGenerator.DatabaseObjects;
 
 
-namespace POCOGenerator.LanguageProvider
+namespace POCOGenerator.LanguageProvider  
 {
     public static class LangParser
     {

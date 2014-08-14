@@ -25,7 +25,7 @@ namespace POCOGenerator.Engine
         /// <param name="isCSharp"></param>
         /// <param name="isRuby"></param>
         void GetLanguageType(out bool isVb, out bool isJava, out bool isCSharp, out bool isRuby); 
-        #endregion
+        #endregion  
 
         #region Writer As per Selected Language
         /// <summary>
